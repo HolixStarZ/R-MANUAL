@@ -24,3 +24,20 @@ Matrices are creations from the 10X because it does not only analyse transcripto
 
 
 ## 1.2 R Setup
+The following packages are needed for the Seurat object to function:
+```
+setwd ("C:/Users/X") #You have to set your own working directory so save files are organised.
+
+library(dplyr)
+library(Seurat)
+library(patchwork)
+library(ggplot2)
+```
+
+```
+# Load the PBMC dataset
+pbmc.data <- Read10X_h5("./data/10k_PBMC.h5")
+# Initialize the Seurat object with the raw (non-normalized data).
+pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc10k", min.cells = 3, min.features = 200)
+pbmc
+```
