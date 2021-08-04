@@ -34,10 +34,21 @@ library(patchwork)
 library(ggplot2)
 ```
 
+To read any files from 10X, we use the ```Read10X_h5``` command to read the hdf5 files. If we want to read data using the output of the cellranger pipeline from 10X directly, we can use ```Read10X()```. The values in this matrix represent the number of molecules for each feature (i.e. gene; row) that are detected in each cell (column). It can be used to read both scATAC-seq and scRNA-seq matrices. We use this matrix to create the ```Seurat Object```. 
+
+For this example, we are using the examplar files from the 10X website [LINK]
 ```
 # Load the PBMC dataset
 pbmc.data <- Read10X_h5("./data/10k_PBMC.h5")
+
 # Initialize the Seurat object with the raw (non-normalized data).
 pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc10k", min.cells = 3, min.features = 200)
 pbmc
 ```
+Reading the loaded enviroment should give the following codes:
+```
+An object of class Seurat 
+22432 features across 10813 samples within 1 assay 
+Active assay: RNA (22432 features, 0 variable features)
+```
+
