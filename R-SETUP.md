@@ -9,6 +9,12 @@ FASTQ files are text-based format used for storing read sequences represented by
 Cell Ranger is a set of analysis pipelines that process Chromium single-cell data to align reads, generate feature-barcode matrices, perform clustering and other secondary analysis, and more. It help us to generate the RNA reads count matrix we will use later. A few important concepts:
 - GEM WELL: also known as GEM GROUP are repetitioned cells from one single 10X genomics channel. One or more sequencing libraries can be derived from a GEM well. 
 - Library: library types may include Gene Expression, Antibody Capture, CRISPR Guide Capture, TCR-enrichment, etc and are derrived from a single GEM well (or multiple libriaries from one well). Libraries features barcodes or V (D) J assays for analysis. 
+- Sequencing Run (or Flowcell): A flowcell containing data from one sequencing instrument run.
+
+#### File Outputs from Cell Ranger
+Cell Ranger output files are contained in one single folder that has the ```outs``` folder. The ```outs``` folder overview shows the summary of all items from the 10X genomics analysis, ranging from sequencing data, the annotated read sequences, and gene expression matrices. Important files to look at are ```Matrices``` ```Web Summary .html``` ```Secondary Analysis CSV``` ```BAM``` ```Molecule Info (h5)``` ```Loupe File (.cloupe)```. 
+
+Matrices are creations from the 10X because it does not only analyse transcriptome but also molecular, meaning ```Cell Associated Barcodes``` are also created 
 
 ### 1.1.3 Star Solo
 
