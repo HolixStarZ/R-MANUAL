@@ -52,3 +52,11 @@ An object of class Seurat
 Active assay: RNA (22432 features, 0 variable features)
 ```
 
+### 1.2.1 Standard of Workflow
+Just like any other analytical proccesses, the workflow of using 10X data represents the selection and filtration of cells based on quality control metrics, data normalization and scaling, and the detection of highly variable features. This applies to all the RNA read count matrices we get from any ```Cell Ranger``` or ```STARsolo``` output. 
+
+### 1.2.2 Quality Control and Selecting Viable Cells
+There are a few catagories that we look for while conducting QC tests on 10X data:
+- Percentage of unique genes detected in each cell
+  - 
+- Percentage of mitochondrial gene reads
