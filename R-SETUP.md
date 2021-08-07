@@ -24,3 +24,39 @@ Matrices are creations from the 10X because it does not only analyse transcripto
 
 
 ## 1.2 R Setup
+The following packages are needed for the Seurat object to function:
+```
+setwd ("C:/Users/X") #You have to set your own working directory so save files are organised.
+
+library(dplyr)
+library(Seurat)
+library(patchwork)
+library(ggplot2)
+```
+
+To read any files from 10X, we use the ```Read10X_h5``` command to read the hdf5 files. If we want to read data using the output of the cellranger pipeline from 10X directly, we can use ```Read10X()```. The values in this matrix represent the number of molecules for each feature (i.e. gene; row) that are detected in each cell (column). It can be used to read both scATAC-seq and scRNA-seq matrices. We use this matrix to create the ```Seurat Object```. 
+
+For this example, we are using the examplar files from the 10X website [LINK]
+```
+# Load the PBMC dataset
+pbmc.data <- Read10X_h5("./data/10k_PBMC.h5")
+
+# Initialize the Seurat object with the raw (non-normalized data).
+pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc10k", min.cells = 3, min.features = 200)
+pbmc
+```
+Reading the loaded enviroment should give the following codes:
+```
+An object of class Seurat 
+22432 features across 10813 samples within 1 assay 
+Active assay: RNA (22432 features, 0 variable features)
+```
+
+### 1.2.1 Standard of Workflow
+Just like any other analytical proccesses, the workflow of using 10X data represents the selection and filtration of cells based on quality control metrics, data normalization and scaling, and the detection of highly variable features. This applies to all the RNA read count matrices we get from any ```Cell Ranger``` or ```STARsolo``` output. 
+
+### 1.2.2 Quality Control and Selecting Viable Cells
+There are a few catagories that we look for while conducting QC tests on 10X data:
+- Percentage of unique genes detected in each cell
+  - 
+- Percentage of mitochondrial gene reads
