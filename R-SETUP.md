@@ -1,4 +1,4 @@
-#Chapter 1: R-SETUP
+# Chapter 1: R-SETUP
 ## 1.2 Background Before Working
 ### 1.1.1 FASTQ file
 FASTQ files are text-based format used for storing read sequences represented by single-letter codes that might appear as raw data from scRNAseq. 
