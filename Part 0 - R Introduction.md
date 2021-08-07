@@ -4,6 +4,7 @@ This section of the manual introduces the programme R and its relavent functions
 ## Introduction
 
 ## Installing R
+To install the programme R, simply click on the following links 
 
 ## Basic Functions and UI
 
